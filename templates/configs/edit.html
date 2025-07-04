@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>✏️ ویرایش کانفیگ</h2>
+<form method="post">
+    <label>نام:</label><br>
+    <input type="text" name="name" value="{{ config.name }}" required><br><br>
+
+    <label>پروتکل:</label><br>
+    <input type="text" name="protocol" value="{{ config.protocol }}" required><br><br>
+
+    <label>جیسون کانفیگ:</label><br>
+    <textarea name="config_json" rows="8" cols="60" required>{{ config.config_json }}</textarea><br><br>
+
+    <label>تگ‌ها:</label><br>
+    <input type="text" name="tags" value="{{ config.tags }}"><br><br>
+
+    <button type="submit">ذخیره تغییرات</button>
+</form>
+{% endblock %}
