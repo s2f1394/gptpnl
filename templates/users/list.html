@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>لیست کاربران</h2>
+<table>
+    <thead>
+        <tr>
+            <th>شناسه</th>
+            <th>نام</th>
+            <th>پلن</th>
+            <th>ترافیک</th>
+            <th>تعداد دستگاه</th>
+            <th>تک‌دیوایس</th>
+            <th>شروع</th>
+            <th>پایان</th>
+            <th>وضعیت</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }} GB</td>
+            <td>{{ user[4] }}</td>
+            <td>{% if user[8] == 1 %}✅{% else %}❌{% endif %}</td>
+            <td>{{ user[5][:10] }}</td>
+            <td>{{ user[6][:10] }}</td>
+            <td>{{ user[7] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('users.add_user') }}">➕ افزودن کاربر جدید</a>
+{% endblock %}
