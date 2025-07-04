@@ -1,1 +1,42 @@
 
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}مدیریت GPT پنل{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>🛠️ پنل مدیریت GPT</h1>
+        <nav>
+            <a href="/">🏠 داشبورد</a>
+
+            <div class="dropdown">
+                <span>👥 کاربران ▾</span>
+                <div class="dropdown-content">
+                    <a href="/users">📋 لیست کاربران</a>
+                    <a href="/add_user">➕ افزودن کاربر</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <span>🗂 کانفیگ‌ها ▾</span>
+                <div class="dropdown-content">
+                    <a href="/configs">📄 لیست کانفیگ‌ها</a>
+                    <a href="/add_config">➕ ساخت کانفیگ</a>
+                </div>
+            </div>
+
+            <a href="/gpt">🤖 هوش مصنوعی</a>
+            <a href="/settings">⚙️ تنظیمات</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- محتوای هر صفحه اینجا قرار می‌گیره -->
+        {% endblock %}
+    </main>
+</body>
+</html>
