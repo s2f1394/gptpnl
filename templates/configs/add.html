@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>➕ افزودن کانفیگ جدید</h2>
+<form method="post">
+    <label>نام کانفیگ:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>پروتکل (مثلاً vmess, vless):</label><br>
+    <input type="text" name="protocol" required><br><br>
+
+    <label>جیسون کانفیگ:</label><br>
+    <textarea name="config_json" rows="8" cols="60" required></textarea><br><br>
+
+    <label>تگ‌ها (با , جدا کن):</label><br>
+    <input type="text" name="tags"><br><br>
+
+    <button type="submit">ثبت</button>
+</form>
+{% endblock %}
