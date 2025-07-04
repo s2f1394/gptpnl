@@ -1,1 +1,66 @@
+{% extends "layout.html" %}
 
+{% block title %}داشبورد مدیریت{% endblock %}
+
+{% block content %}
+<h2>📊 داشبورد</h2>
+
+<div class="summary">
+    <div class="card">
+        <h3>👥 تعداد کاربران</h3>
+        <p>{{ users|length }}</p>
+    </div>
+    <div class="card">
+        <h3>🗂 تعداد کانفیگ‌ها</h3>
+        <p>{{ configs|length }}</p>
+    </div>
+</div>
+
+<div style="margin-top: 30px;">
+    <h3>لیست کاربران (جدیدترین‌ها)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>نام</th>
+                <th>پلن</th>
+                <th>ترافیک</th>
+                <th>تاریخ پایان</th>
+                <th>وضعیت</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users[:5] %}
+            <tr>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+                <td>{{ user[3] }}</td>
+                <td>{{ user[6][:10] }}</td>
+                <td>{{ user[7] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div style="margin-top: 30px;">
+    <h3>لیست کانفیگ‌ها (جدیدترین‌ها)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>نام</th>
+                <th>پروتکل</th>
+                <th>تاریخ ساخت</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cfg in configs[:5] %}
+            <tr>
+                <td>{{ cfg[1] }}</td>
+                <td>{{ cfg[2] }}</td>
+                <td>{{ cfg[5][:10] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
