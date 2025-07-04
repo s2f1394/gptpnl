@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>📋 لیست کانفیگ‌ها</h2>
+<a href="{{ url_for('configs.add_config') }}">➕ افزودن کانفیگ جدید</a>
+<table border="1" cellpadding="8">
+    <tr>
+        <th>نام</th>
+        <th>پروتکل</th>
+        <th>تگ‌ها</th>
+        <th>تاریخ ساخت</th>
+        <th>عملیات</th>
+    </tr>
+    {% for cfg in configs %}
+    <tr>
+        <td>{{ cfg.name }}</td>
+        <td>{{ cfg.protocol }}</td>
+        <td>{{ cfg.tags }}</td>
+        <td>{{ cfg.created_at[:19] }}</td>
+        <td>
+            <a href="{{ url_for('configs.edit_config', config_id=cfg.id) }}">✏️ ویرایش</a> |
+            <a href="{{ url_for('configs.delete_config', config_id=cfg.id) }}" onclick="return confirm('حذف شود؟')">🗑 حذف</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
