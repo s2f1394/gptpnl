@@ -1,1 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>⚙️ تنظیمات پنل</h2>
+<form method="POST">
+    <label>🔑 کلید API هوش مصنوعی:</label><br>
+    <input type="text" name="OPENAI_API_KEY" value="{{ settings.get('OPENAI_API_KEY', '') }}" size="60"><br><br>
 
+    <label>🌐 دامنه پیش‌فرض لینک کانفیگ:</label><br>
+    <input type="text" name="BASE_DOMAIN" value="{{ settings.get('BASE_DOMAIN', '') }}" size="60"><br><br>
+
+    <label>📅 مدت زمان پیش‌فرض پلن (روز):</label><br>
+    <input type="number" name="DEFAULT_DAYS" value="{{ settings.get('DEFAULT_DAYS', '30') }}"><br><br>
+
+    <button type="submit">💾 ذخیره تنظیمات</button>
+</form>
+{% endblock %}
