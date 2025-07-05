@@ -1,17 +1,12 @@
-
-{% extends 'layout.html' %}
+{% extends "layout.html" %}
 {% block content %}
-<h2>🤖 چت با GPT</h2>
+<h2>💬 چت با GPT</h2>
 <form method="POST">
-    <label>متن سوال:</label><br>
-    <textarea name="prompt" rows="6" cols="60" required></textarea><br><br>
+    <textarea name="prompt" rows="4" cols="50" placeholder="سوال خود را بنویسید..." required></textarea><br>
     <button type="submit">ارسال</button>
 </form>
-
 {% if response %}
-    <h3>✅ پاسخ:</h3>
-    <div style="background-color: #f1f1f1; padding: 10px; border-radius: 5px;">
-        {{ response }}
-    </div>
+    <h3>پاسخ:</h3>
+    <div style="white-space: pre-wrap; background: #f4f4f4; padding: 10px;">{{ response }}</div>
 {% endif %}
 {% endblock %}
